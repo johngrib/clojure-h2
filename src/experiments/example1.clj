@@ -9,14 +9,11 @@
    :user        "sa"
    :password    ""})
 
-(defn try-h2 []
+(comment
   (j/query demo-settings ["show databases"])
 
   (j/execute! demo-settings ["create table csvdata (id int primary key, name varchar(100), age int)"])
   (j/execute! demo-settings ["insert into csvdata values(1, 'hello', 20)"])
   (j/execute! demo-settings ["insert into csvdata values(2, 'world', 21)"])
   (j/query demo-settings ["select * from csvdata"])
-  (j/query demo-settings ["select * from csvdata where name = 'hello'"])
-  )
-
-(try-h2)
+  (j/query demo-settings ["select * from csvdata where name = 'hello'"]))
